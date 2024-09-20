@@ -12,7 +12,11 @@ const getSrc = (url) => {
     return "http://www.youtube.com/embed/" + videoId
 }
 
-const search = (searchTerm) => {
+const search = async (searchTerm) => {
+    if (searchTerm === '') {
+        return null
+    }
+
     let matchedId = getId(searchTerm)
 
     const retVids = []
@@ -21,7 +25,7 @@ const search = (searchTerm) => {
         retVids.push(
             {
                 'vid': matchedId,
-                'name': "Your mom's secret vid",
+                'name': "Your mom's super duper absolutely secret vid",
                 'channelName': "Your Mom, obvi",
                 'imgUrl': "https://i.ytimg.com/vi/pYu2W_-RiEo/hqdefault.jpg?sqp=-oaymwE1CKgBEF5IVfKriqkDKAgBFQAAiEIYAXABwAEG8AEB-AH-CYAC0AWKAgwIABABGFMgZShMMA8=&rs=AOn4CLCfUJ9kkobjRvnkWVWQhXCplNxiWw"
             },
@@ -33,6 +37,8 @@ const search = (searchTerm) => {
             }
         )
     }
+
+    return retVids
 }
 
-module.exports = [getId, getSrc, search]
+export { getId, getSrc, search }
