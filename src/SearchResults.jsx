@@ -9,9 +9,6 @@ results will come in the form of:
     'imgUrl': "https://i.ytimg.com/vi/pYu2..."
 }
 */
-
-
-
 const SearchResults = ({ results, loadVid }) => {
     const [stateResults, setStateResults] = useState(results)
 
