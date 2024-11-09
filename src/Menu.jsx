@@ -30,7 +30,7 @@ const Menu = ({ moveMenu, submitApiKey }) => {
             <h2 className="mt-10 ml-3 text-2xl font-semibold">API Key</h2>
             <p className="ml-3 text-sm text-gray-600">In order to use search functionality, add your Google API Key</p>
             <div className="flex bg-gray-300 w-5/6 py-2 px-3 ml-3 mt-2 rounded-lg justify-between">
-                <input type="text" autoComplete="off" onFocus={() => { setOutMessage('') }} onKeyDown={e => { if (e.key == 'Enter') { getAndSubmitKey() } }} id="apikeyinput" className="bg-gray-300 grow focus:outline-none focus:ring-transparent" ></input>
+                <input type="text" autoComplete="off" autocapitalize="off" onFocus={() => { setOutMessage('') }} onKeyDown={e => { if (e.key == 'Enter') { getAndSubmitKey() } }} id="apikeyinput" className="bg-gray-300 grow focus:outline-none focus:ring-transparent" ></input>
                 <button onClick={getAndSubmitKey} className="bg-blue-500 ml-3 p-1 px-2 w-20 hover:bg-blue-800 rounded-lg text-white ">Add Key</button>
             </div>
             <p className={`ml-3 mt-2 bg-green-200 px-3 py-2 w-fit rounded-lg ${outMessage ? 'visible' : 'invisible'} text-green-800 text-sm`}>{outMessage}</p>
