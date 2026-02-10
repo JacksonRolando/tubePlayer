@@ -88,7 +88,6 @@ async function decryptData(encryptedData, passphrase) {
     return dec.decode(decrypted);
 }
 
-//My code:
 const encryptedData = {
     "cipherText": "nDrgxbOWc59XVD5HCb9qloGm3aPoUXCWq7nHvu6kysR6xnNcozjKdFiyXMq3AxDd6LFxsMZC8w==",
     "iv": "YnFmdYgo8jfdDO8f",
@@ -97,8 +96,8 @@ const encryptedData = {
 
 const encryptKey = async () => {
     let secretData = prompt("Enter Data to be encrypted: ")
-    let passkey = prompt("Enter a passphrase to encrypt the API key: ")
-    let encryptedData = await encryptData(secretData, passkey)
+    let passkey = prompt("Enter a passphrase (secret) to encrypt the API key: ")
+    console.log(await encryptData(secretData, passkey))
 }
 
 const saveKey = (key) => {
@@ -111,6 +110,8 @@ const decryptAndSaveKey = async (passphrase) => {
     return true
 }
 
+//uses the input as decyption secret, must be the same string used to encrypt the data
+//   if unsuccessful, uses as api key
 const submitApiKey = async (apiKeyInput) => {
     try {
         await decryptAndSaveKey(apiKeyInput)
